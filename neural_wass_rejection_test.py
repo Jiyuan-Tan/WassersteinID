@@ -514,7 +514,7 @@ def plot_rejection_rates(results_df: pd.DataFrame, title: str = "Neural Wasserst
 # Main execution
 # ==============
 if __name__ == "__main__":
-    print("Neural Wasserstein CI Rejection Rate Analysis")
+    print("WPI Hypothesis Testing Rejection Rate Analysis")
     print("=" * 60)
     np.random.seed(42)
 

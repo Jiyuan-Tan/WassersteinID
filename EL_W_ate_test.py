@@ -538,22 +538,6 @@ class WassCI(dml):
                 result = minimize(obj_func, x_0, jac=grad_func, method='L-BFGS-B',  tol=1e-3)
                 lam_der = (result.fun - np.linalg.norm(result.x)**2 / n) / (lam)
                 
-                """# Perform Hessian analysis at the solution
-                print(f"\n=== FAST HESSIAN ANALYSIS AT SOLUTION (lambda = {lam}) ===")
-                
-                # Check if the solution is a saddle point using fast analysis
-                hessian_results = fast_hessian_analysis(self, result.x, lam, check_blocks=True)
-                
-                # Print results
-                print_fast_analysis_results(hessian_results)
-                
-                # Check for saddle point warning
-                if hessian_results['overall_analysis']['is_saddle']:
-                    print("⚠️  WARNING: Solution is a SADDLE POINT!")
-                    print("   Consider using different initialization or regularization.")
-                else:
-                    print("✅ Solution appears to be a proper critical point.")"""
-                
                 return -result.fun, lam_der, result.x
             except:
                 print(f"Error in minimize for lambda = {lam}")
